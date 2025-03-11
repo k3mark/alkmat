@@ -131,7 +131,7 @@
 % hold on;
 
 %japan súly
-%A = readtable("japan_h_w_man.xlsx");
+%A = readtable("japan_h_w_man.xlsx")
 %A = table2array(A(:,[3,5]));
 %plot(A(:,1), A(:,2), "*")
 %hold on;
