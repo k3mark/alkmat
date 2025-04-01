@@ -9,13 +9,13 @@
 % figure; plot(t,f,'*',xx,yy)
 
 %1.feladat
-% t=[1 1.2 1.4 1.4 1.5 1.7 1.9 2 2.1 2.2]';
-% f=[4.2 3.8 3.4 3.3 3.3 3 2.8 2.8 2.75 2.7]';
-% A = [ones(size(t)), 1./t]
-% x = (A'*A)\(A'*f)
-% xx = linspace(1.3, 2.9);
-% yy = x(1)+x(2)./xx;
-% plot(t,f,'*',xx,yy)
+t=[1 1.2 1.4 1.4 1.5 1.7 1.9 2 2.1 2.2]';
+f=[4.2 3.8 3.4 3.3 3.3 3 2.8 2.8 2.75 2.7]';
+A = [ones(size(t)), 1./t]
+x = (A'*A)\(A'*f)
+xx = linspace(1.3, 2.9);
+yy = x(1)+x(2)./xx;
+plot(t,f,'*',xx,yy)
 
 %2.feladat
 % t=[0.1 0.5 1.2 1.5 2 2.1 2.4  3  3.2  3.4 3.8 4 4.2  4.6  5]';
@@ -67,24 +67,24 @@ trees = readtable("trees.xlsx");
 
 
 %autós példa
-load carsmall.mat
-B = [Horsepower, Weight, Acceleration, MPG];
-B(any(isnan(B),2),:)= [];
-p = polyfit(B(:,2), B(:,4), 1);
-figure; plot(B(:,2), B(:,4), '*')
-hold on 
-refline(p)
-error1 = mse(B(:,4), polyval(p, B(:,2)))
-
-figure; plot3(B(:,1), B(:,2), B(:,4), '*')
-A = [ones(size(B(:,1))), B(:,1), B(:,2)]
-x = (A'*A)\(A'*B(:,4))
-f=@(u,v) x(1)+x(2)*u+x(3)*v;
-hold on
-fmesh(f, [min(B(:,1)), max(B(:,1)), min(B(:,2)), max(B(:,2))])
-
-
-
+% load carsmall.mat
+% B = [Horsepower, Weight, Acceleration, MPG];
+% B(any(isnan(B),2),:)= [];
+% p = polyfit(B(:,2), B(:,4), 1);
+% figure; plot(B(:,2), B(:,4), '*')
+% hold on 
+% refline(p)
+% error1 = mse(B(:,4), polyval(p, B(:,2)))
+% 
+% figure; plot3(B(:,1), B(:,2), B(:,4), '*')
+% A = [ones(size(B(:,1))), B(:,1), B(:,2)]
+% x = (A'*A)\(A'*B(:,4))
+% f=@(u,v) x(1)+x(2)*u+x(3)*v;
+% hold on
+% fmesh(f, [min(B(:,1)), max(B(:,1)), min(B(:,2)), max(B(:,2))])
+% 
+% 
+% 
 
 
 
