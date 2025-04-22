@@ -105,24 +105,47 @@
 % [xopt,fopt]=fminunc(f,[-0.5,0])
 
 %7.feladat
-x = linspace(-2.5, 2.5);
-y = linspace(-2.5, 2.5);
-[x,y] = meshgrid(x,y);
-z = (1/6)*x^3-x+(1/4)*x.*y.^2;
-figure; mesh(x,y,z);
+% f=@(x,y) x.^3/6-x+x.*y.^2/4;
+% figure;fmesh(f,[-2.5,2.5])
+% figure;fcontour(f,[-2.5,2.5],'LevelList',linspace(-2,2,15))
+% xx=linspace(-2.5,2.5,17);
+% yy=xx;
+% [X,Y]=meshgrid(xx,yy);
+% Z=f(X,Y);
+% [dX,dY]=gradient(Z);
+% L=sqrt(dX.^2+dY.^2);
+% axis equal;
+% hold on;
+% quiver(X,Y,-dX./L,-dY./L,0.3)
+% F=@(x) f(x(1),x(2));
+% [xopt,fopt]=fminunc(F,[1.5,0])
+% 
+% f=@(x,y) sin(x).*cos(y) ;
+% figure;fcontour(f,[0,2*pi])
+% xx=linspace(0,2*pi,17);
+% yy=xx;
+% [X,Y]=meshgrid(xx,yy);
+% Z=f(X,Y);
+% [dX,dY]=gradient(Z);
+% L=sqrt(dX.^2+dY.^2);
+% axis equal;
+% hold on;
+% quiver(X,Y,-dX./L,-dY./L,0.3)
+% F=@(x) f(x(1),x(2));
+% [xopt,fopt]=fminunc(F,[1.5,0])
 
-figure; contour(x,y,z)
+% % 4.feladat
+% f = @(x) 2.*x.*pi.*(1000./(x.^2.*pi)) + 2.*x.^2.*pi;
+% x = linspace(0,20);
+% plot(x, f(x))
+% [xopt, fopt] = fminsearch(f,0)
 
-xx = linspace(-2.5, 2.5, 17);
-yy = xx;
-[X,Y] = meshgrid(xx,yy);
-Z = f(X,Y);
-[dX,dY] = gradient(Z);
-hold on; quiver(X,Y, -dX, -dY);
-
-
-
-
+%5.feldat
+f = @(x) -(10+10.*cos(x)) .*10.*sin(x);
+x = linspace(0,pi/2);
+plot(x, f(x))
+[xopt, fopt] = fminsearch(f,0)
+rad2deg(xopt)
 
 
 
