@@ -141,11 +141,11 @@
 % [xopt, fopt] = fminsearch(f,0)
 
 %5.feldat
-f = @(x) -(10+10.*cos(x)) .*10.*sin(x);
-x = linspace(0,pi/2);
-plot(x, f(x))
-[xopt, fopt] = fminsearch(f,0)
-rad2deg(xopt)
+% f = @(x) -(10+10.*cos(x)) .*10.*sin(x);
+% x = linspace(0,pi/2);
+% plot(x, f(x))
+% [xopt, fopt] = fminsearch(f,0)
+% rad2deg(xopt)
 
 
 
